@@ -1,70 +1,56 @@
 # 🌍🚀 ExoHabit: Discover Earth 2.0 with AI 🪐
 
-![header](https://i.gifer.com/embedded/download/7U6f.gif)
+![space telescope](https://media.tenor.com/0pEZ6_oKBIEAAAAC/nasa-james-webb.gif)
 
 > **"Somewhere, something incredible is waiting to be known." – Carl Sagan**
 
-**ExoHabit** is a machine learning research project powered by data from the **James Webb Space Telescope (JWST)**. It compares the **spectrograms** of distant exoplanets with Earth’s to predict their **habitability** — guiding humanity toward our next potential home in the stars.
+**ExoHabit** is an AI-powered space research project using real and simulated spectrogram data from exoplanets to detect habitability. It compares light signatures from distant worlds with Earth’s biosignature to find our next potential home in the stars.
 
 ---
 
 ## 🌠 What Is ExoHabit?
 
-Using AI, ExoHabit helps:
-- 🔬 Detect key molecules like O₂, CH₄, CO₂ in exoplanet atmospheres
-- 🧠 Compare planetary spectrograms with Earth’s biosignature
-- 🪐 Estimate the percentage of compatibility for human-like life
-- 📈 Visualize spectral matches using scientific plots
+ExoHabit uses the **James Webb Space Telescope (JWST)**'s spectrograms to:
 
-> This project brings **space science and AI** together to answer:  
-> 🛸 *"Could we live there?"*
+- 🔬 Detect key molecules like O₂, CH₄, CO₂ in planetary atmospheres
+- 🧠 Compare with Earth’s light signature
+- 🧪 Calculate a **habitability compatibility score**
+- 📈 Visualize side-by-side spectrograms
 
----
-
-## 📸 Live From Space: How It Works
-
-![jwst](https://media.tenor.com/ZIjUKRVIr1IAAAAC/james-webb-space.gif)
-
-1. JWST captures a spectrogram (light wave breakdown) from a distant exoplanet.
-2. The model detects atmospheric features from this data.
-3. Earth’s reference spectrum is used as a benchmark.
-4. The system calculates a **habitability score** based on similarity.
-5. Output includes score, insights, and graphs.
+> ✨ This is your AI companion for exploring habitable worlds across galaxies.
 
 ---
 
-## ✨ Features
+## 🚀 Live from the Universe
 
-🔭 Spectrogram input from exoplanets (real or simulated)  
-🧬 Feature detection for biosignature gases  
-📊 Machine learning–based habitability scoring  
-📈 Clear visual comparison of spectra  
-🌐 Ready for integration with NASA/JWST APIs  
+![planet scan](https://media.giphy.com/media/WFZvB7VIXBgiz3oDXE/giphy.gif)
+
+JWST beams data from far-off exoplanets.  
+ExoHabit reads the **infrared spectrum**, identifies chemical markers, and evaluates if the planet could host Earth-like life.
 
 ---
 
-## 💻 Tech Stack
+## 🛠️ Tech Stack
 
-- **Python 3**
+- Python 3.11+
 - `numpy`, `scipy`, `pandas`
-- `matplotlib`, `seaborn`
-- `scikit-learn`
+- `scikit-learn`, `matplotlib`, `seaborn`
 - `astropy`, `specutils`
-- (Optional) `tensorflow` / `pytorch` for DL models
 
 ---
 
 ## 🧪 Sample Output
 
-![spectra](https://upload.wikimedia.org/wikipedia/commons/c/cb/Exoplanet_Spectra_-_NASA.gif)
+![spectral analysis](https://upload.wikimedia.org/wikipedia/commons/c/cb/Exoplanet_Spectra_-_NASA.gif)
 
 ```text
-🌍 Earth vs 🪐 Kepler-442b
-✔️ O2 detected
-✔️ CH4 detected
-❌ H2O missing
+🪐 Planet: Kepler-1649c
+✔️ O₂ Detected
+✔️ CH₄ Detected
+❌ H₂O Missing
 
-✅ Habitability Compatibility Score: 83.5%
+✅ Habitability Score: 86.7%
+
 
 
 ## 📁 Project Structure
