@@ -1,66 +1,71 @@
-# 🌍🚀 ExoHabit: Discover Earth 2.0 with AI 🪐🌌
+# 🌍🚀 ExoHabit: Discover Earth 2.0 with AI 🪐
 
-![JWST](https://i.gifer.com/embedded/download/7U6f.gif)
+![header](https://i.gifer.com/embedded/download/7U6f.gif)
 
 > **"Somewhere, something incredible is waiting to be known." – Carl Sagan**
 
-**ExoHabit** is a cutting-edge machine learning project that explores the stars through the eyes of the **James Webb Space Telescope (JWST)**. Our mission?  
-To analyze the *spectrograms* of exoplanets and find the ones most similar to Earth — the potential **new homes** for life beyond our pale blue dot.
+**ExoHabit** is a machine learning research project powered by data from the **James Webb Space Telescope (JWST)**. It compares the **spectrograms** of distant exoplanets with Earth’s to predict their **habitability** — guiding humanity toward our next potential home in the stars.
 
 ---
 
 ## 🌠 What Is ExoHabit?
 
-The JWST is capturing light from planets hundreds of light-years away — and hidden in those light waves is the secret of **atmospheres**, **gases**, and maybe even **life**.
+Using AI, ExoHabit helps:
+- 🔬 Detect key molecules like O₂, CH₄, CO₂ in exoplanet atmospheres
+- 🧠 Compare planetary spectrograms with Earth’s biosignature
+- 🪐 Estimate the percentage of compatibility for human-like life
+- 📈 Visualize spectral matches using scientific plots
 
-This project builds an **AI-powered system** to:
-- 🔭 Read & compare exoplanet spectrograms with Earth’s
-- 💡 Detect key life-supporting molecules (like O₂, CH₄, CO₂)
-- 🧠 Use signal processing & ML to compute **habitability scores**
-- 📊 Visualize spectral similarities with beautiful graphs
-
-> Think of it as a **space explorer’s AI assistant**, built to find our next planetary neighbor 🌍➡️🪐
-
----
-
-## 🧬 Key Features
-
-🚀 **JWST-Compatible**  
-Analyzes real or simulated spectrograms from the James Webb Space Telescope
-
-🧠 **ML-Driven Habitability Estimation**  
-Compares planetary atmospheric signals to Earth's biosignature using machine learning
-
-🌌 **Custom Habitability Score**  
-Calculates a 0–100% match based on chemical similarity, zone, and environmental factors
-
-🪞 **Side-by-Side Spectrogram Visualization**  
-Plot & compare exoplanet light curves with Earth’s
-
-🎯 **Extensible**  
-Add deep learning, real NASA datasets, or build a planetary discovery dashboard
+> This project brings **space science and AI** together to answer:  
+> 🛸 *"Could we live there?"*
 
 ---
 
-## 🛠️ Technologies Used
+## 📸 Live From Space: How It Works
 
-- `Python 3.11`
+![jwst](https://media.tenor.com/ZIjUKRVIr1IAAAAC/james-webb-space.gif)
+
+1. JWST captures a spectrogram (light wave breakdown) from a distant exoplanet.
+2. The model detects atmospheric features from this data.
+3. Earth’s reference spectrum is used as a benchmark.
+4. The system calculates a **habitability score** based on similarity.
+5. Output includes score, insights, and graphs.
+
+---
+
+## ✨ Features
+
+🔭 Spectrogram input from exoplanets (real or simulated)  
+🧬 Feature detection for biosignature gases  
+📊 Machine learning–based habitability scoring  
+📈 Clear visual comparison of spectra  
+🌐 Ready for integration with NASA/JWST APIs  
+
+---
+
+## 💻 Tech Stack
+
+- **Python 3**
 - `numpy`, `scipy`, `pandas`
-- `scikit-learn`, `matplotlib`, `seaborn`
+- `matplotlib`, `seaborn`
+- `scikit-learn`
 - `astropy`, `specutils`
-- JWST/Mission Archive APIs (optional)
+- (Optional) `tensorflow` / `pytorch` for DL models
 
 ---
 
-## 🧪 How It Works
+## 🧪 Sample Output
 
-1. 🛰️ JWST sends planetary spectrograms
-2. 📊 We extract key peaks from the spectrum (O₂, CO₂, CH₄)
-3. 🧠 Compare this data with Earth’s known atmospheric spectrum
-4. 🔢 Return a **compatibility score**
-5. 🌍 Identify the most Earth-like candidates in space
+![spectra](https://upload.wikimedia.org/wikipedia/commons/c/cb/Exoplanet_Spectra_-_NASA.gif)
 
----
+```text
+🌍 Earth vs 🪐 Kepler-442b
+✔️ O2 detected
+✔️ CH4 detected
+❌ H2O missing
+
+✅ Habitability Compatibility Score: 83.5%
+
 
 ## 📁 Project Structure
 
