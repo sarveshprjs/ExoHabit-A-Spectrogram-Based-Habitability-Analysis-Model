@@ -1,60 +1,76 @@
-# ExoHabit - main.py
-
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-from scipy.spatial.distance import cosine
+from sklearn.metrics.pairwise import cosine_similarity
+from scipy.interpolate import interp1d
 
 
-def generate_earth_spectrogram():
+def load_spectrogram_from_csv(filepath):
     """
-    Simulated Earth spectrum with peak absorption features for O2, CO2, CH4
+    Loads spectrogram data from a CSV file with 'wavelength' and 'intensity' columns.
+    Returns: numpy arrays of wavelength and normalized intensity.
     """
-    wavelengths = np.linspace(0.5, 2.5, 500)
-    spectrum = (
-        np.exp(-((wavelengths - 0.76) ** 2) / 0.01) +  # O2 peak
-        np.exp(-((wavelengths - 1.5) ** 2) / 0.03) +    # CO2 peak
-        np.exp(-((wavelengths - 2.3) ** 2) / 0.01)      # CH4 peak
-    )
-    return wavelengths, spectrum
+    df = pd.read_csv(filepath)
+    wavelength = df['wavelength'].values
+    intensity = df['intensity'].values
+    intensity = intensity / np.linalg.norm(intensity)  # Normalize
+    return wavelength, intensity
 
 
-def generate_exoplanet_spectrogram():
+def interpolate_spectrogram(w1, i1, w2):
     """
-    Simulated exoplanet spectrum with partially matching features
+    Interpolates the intensity values of spectrum 1 to match the wavelength range of spectrum 2.
     """
-    wavelengths = np.linspace(0.5, 2.5, 500)
-    spectrum = (
-        0.8 * np.exp(-((wavelengths - 0.76) ** 2) / 0.01) +  # weak O2
-        np.exp(-((wavelengths - 1.5) ** 2) / 0.03) +          # CO2
-        0.1 * np.random.rand(500)                            # noise
-    )
-    return wavelengths, spectrum
+    f_interp = interp1d(w1, i1, bounds_error=False, fill_value=0)
+    return f_interp(w2)
 
 
-def compute_similarity(earth_spectrum, planet_spectrum):
-    """
-    Calculate cosine similarity between Earth and exoplanet spectra
-    """
-    return 1 - cosine(earth_spectrum, planet_spectrum)
+def calculate_similarity(intensity1, intensity2):
+    return cosine_similarity([intensity1], [intensity2])[0][0]
+
+
+def assess_habitability(similarity_score):
+    """Returns habitability interpretation based on similarity."""
+    if similarity_score > 0.9:
+        return "🌍 Very High Compatibility - Earth-like"
+    elif similarity_score > 0.75:
+        return "🪐 High Compatibility"
+    elif similarity_score > 0.5:
+        return "🌗 Moderate Compatibility"
+    else:
+        return "🛸 Low Compatibility"
+
+
+def visualize_spectrograms(w_earth, i_earth, w_exo, i_exo):
+    plt.figure(figsize=(10, 5))
+    plt.plot(w_earth, i_earth, label="Earth", color='blue')
+    plt.plot(w_exo, i_exo, label="Exoplanet", color='orange')
+    plt.title("Spectrogram Comparison")
+    plt.xlabel("Wavelength")
+    plt.ylabel("Normalized Intensity")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 
 if __name__ == "__main__":
-    # Generate spectra
-    wl, earth = generate_earth_spectrogram()
-    _, exo = generate_exoplanet_spectrogram()
+    # Load CSV data
+    earth_path = "earth_spectrogram.csv"
+    exoplanet_path = "exo_spectrogram.csv"
 
-    # Compute habitability score
-    score = compute_similarity(earth, exo) * 100
-    print(f"\n🌍 Habitability Compatibility Score: {score:.2f}%\n")
+    w_earth, i_earth = load_spectrogram_from_csv(earth_path)
+    w_exo, i_exo_raw = load_spectrogram_from_csv(exoplanet_path)
 
-    # Plot the spectrograms
-    plt.figure(figsize=(10, 5))
-    plt.plot(wl, earth, label='🌍 Earth Spectrum', color='blue')
-    plt.plot(wl, exo, label='🪐 Exoplanet Spectrum', color='orange')
-    plt.title('Spectrogram Comparison - Earth vs Exoplanet')
-    plt.xlabel('Wavelength (micron)')
-    plt.ylabel('Intensity')
-    plt.legend()
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
+    # Interpolate Earth data to match Exo wavelengths
+    i_earth_interp = interpolate_spectrogram(w_earth, i_earth, w_exo)
+
+    # Calculate similarity and assess habitability
+    similarity = calculate_similarity(i_earth_interp, i_exo_raw)
+    status = assess_habitability(similarity)
+
+    # Output results
+    print(f"\n🔭 Spectral Similarity Score: {similarity:.4f}")
+    print(f"🏁 Habitability Estimate: {status}\n")
+
+    # Visualize
+    visualize_spectrograms(w_exo, i_earth_interp, w_exo, i_exo_raw)
