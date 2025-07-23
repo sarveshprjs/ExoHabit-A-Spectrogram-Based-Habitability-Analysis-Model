@@ -7,14 +7,23 @@ from scipy.interpolate import interp1d
 
 def load_spectrogram_from_csv(filepath):
     """
-    Loads spectrogram data from a CSV file with 'wavelength' and 'intensity' columns.
-    Returns: numpy arrays of wavelength and normalized intensity.
+    Loads spectrogram and environmental data from a CSV file.
+    Returns: wavelength, normalized intensity, and a dictionary of environmental features.
     """
     df = pd.read_csv(filepath)
     wavelength = df['wavelength'].values
     intensity = df['intensity'].values
     intensity = intensity / np.linalg.norm(intensity)  # Normalize
-    return wavelength, intensity
+
+    # Extract environmental parameters
+    env_features = {
+        'temperature': df['temperature'].iloc[0],
+        'pressure': df['pressure'].iloc[0],
+        'water_presence': df['water_presence'].iloc[0],
+        'oxygen_level': df['oxygen_level'].iloc[0],
+    }
+
+    return wavelength, intensity, env_features
 
 
 def interpolate_spectrogram(w1, i1, w2):
@@ -29,13 +38,45 @@ def calculate_similarity(intensity1, intensity2):
     return cosine_similarity([intensity1], [intensity2])[0][0]
 
 
-def assess_habitability(similarity_score):
-    """Returns habitability interpretation based on similarity."""
-    if similarity_score > 0.9:
+def calculate_environmental_score(env_earth, env_exo):
+    """
+    Calculates similarity score between Earth and Exoplanet environmental conditions.
+    """
+    score = 0
+    total = 4
+
+    # Temperature similarity (allow +/- 20K window)
+    if abs(env_earth['temperature'] - env_exo['temperature']) <= 20:
+        score += 1
+
+    # Pressure similarity (within 0.2 atm)
+    if abs(env_earth['pressure'] - env_exo['pressure']) <= 0.2:
+        score += 1
+
+    # Water presence match
+    if env_earth['water_presence'] == env_exo['water_presence']:
+        score += 1
+
+    # Oxygen level within ±5%
+    if abs(env_earth['oxygen_level'] - env_exo['oxygen_level']) <= 5:
+        score += 1
+
+    return score / total  # Normalize to 0-1
+
+
+def final_habitability_score(spec_score, env_score):
+    """
+    Combines spectral and environmental similarity into a single habitability score.
+    """
+    return 0.6 * spec_score + 0.4 * env_score
+
+
+def assess_habitability(final_score):
+    if final_score > 0.9:
         return "🌍 Very High Compatibility - Earth-like"
-    elif similarity_score > 0.75:
+    elif final_score > 0.75:
         return "🪐 High Compatibility"
-    elif similarity_score > 0.5:
+    elif final_score > 0.5:
         return "🌗 Moderate Compatibility"
     else:
         return "🛸 Low Compatibility"
@@ -58,18 +99,24 @@ if __name__ == "__main__":
     earth_path = "earth_spectrogram.csv"
     exoplanet_path = "exo_spectrogram.csv"
 
-    w_earth, i_earth = load_spectrogram_from_csv(earth_path)
-    w_exo, i_exo_raw = load_spectrogram_from_csv(exoplanet_path)
+    w_earth, i_earth, env_earth = load_spectrogram_from_csv(earth_path)
+    w_exo, i_exo_raw, env_exo = load_spectrogram_from_csv(exoplanet_path)
 
     # Interpolate Earth data to match Exo wavelengths
     i_earth_interp = interpolate_spectrogram(w_earth, i_earth, w_exo)
 
-    # Calculate similarity and assess habitability
-    similarity = calculate_similarity(i_earth_interp, i_exo_raw)
-    status = assess_habitability(similarity)
+    # Calculate spectral and environmental similarity
+    spectral_score = calculate_similarity(i_earth_interp, i_exo_raw)
+    environmental_score = calculate_environmental_score(env_earth, env_exo)
+
+    # Final score
+    final_score = final_habitability_score(spectral_score, environmental_score)
+    status = assess_habitability(final_score)
 
     # Output results
-    print(f"\n🔭 Spectral Similarity Score: {similarity:.4f}")
+    print(f"\n🔭 Spectral Similarity Score: {spectral_score:.4f}")
+    print(f"🌡️ Environmental Score: {environmental_score:.4f}")
+    print(f"✨ Final Habitability Score: {final_score:.4f}")
     print(f"🏁 Habitability Estimate: {status}\n")
 
     # Visualize
