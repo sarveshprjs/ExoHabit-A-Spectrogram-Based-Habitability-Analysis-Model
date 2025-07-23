@@ -1,6 +1,6 @@
 # 🌍🚀 ExoHabit: Discover Earth 2.0 with AI 🪐🌌
 
-![JWST](https://media.giphy.com/media/2IudUHdI075HL02Pkk/giphy.gif)
+![JWST](https://i.gifer.com/embedded/download/7U6f.gif)
 
 > **"Somewhere, something incredible is waiting to be known." – Carl Sagan**
 
