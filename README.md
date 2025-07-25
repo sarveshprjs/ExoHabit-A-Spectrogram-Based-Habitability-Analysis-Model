@@ -1,42 +1,51 @@
-# 🌌 ExoHabit 🚀  
-**A Spectrogram-Based Habitability Analysis Model**
+<!-- 🌌 HEADER BANNER -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/username/repo/main/assets/solar-system.gif" width="80%">
+</p>
 
-![Space Animation](https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif)
-
-> 🪐 *Exploring exoplanets and comparing their atmospheric properties with Earth using spectrogram data.*
-
----
-
-## ✨ Features
-- 🔭 Analyze spectrograms of exoplanets
-- 🌍 Compare planetary environments with Earth
-- 🧪 Estimate percentage of habitability
-- 🚀 Supports James Webb Space Telescope (JWST) data
+<h1 align="center">🌌 ExoHabit: A Spectrogram-Based Habitability Analysis Model 🚀</h1>
+<p align="center">
+  <b>Exploring exoplanets using James Webb Space Telescope (JWST) spectrogram data to assess planetary habitability.</b>
+</p>
 
 ---
 
-## 🛰️ Project Overview
-ExoHabit is designed to process spectrogram datasets from JWST to analyze atmospheric composition and predict habitability.  
-Our model leverages deep learning to map exoplanet spectrogram signatures to Earth’s known data and generate a habitability index.
+## 🛰️ Mission Overview
+ExoHabit leverages atmospheric spectrogram data to compare exoplanets with Earth, calculating a **Habitability Index** using deep learning models.
+
+### Objectives:
+- Process JWST spectrograms to extract atmospheric features.
+- Compare planetary environments with Earth's spectral fingerprint.
+- Predict a quantitative habitability score.
 
 ---
 
-## 📸 Example Output
-![Planet Animation](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
+## 🌍 Features
+- Spectrogram-based exoplanet analysis
+- AI-powered habitability index
+- Support for JWST datasets
+- Modular, scalable architecture
 
 ---
 
-## 🧑‍🚀 Team
-- 👩‍💻 Diksha Wagh
-- 👨‍💻 Sarvesh Prjs
+## 🚀 Output Visualization
+<p align="center">
+  <img src="https://raw.githubusercontent.com/username/repo/main/assets/planet-rotation.gif" width="300px">
+</p>
 
 ---
 
-## 🌠 Future Scope
-- 📡 Integrate real-time JWST data APIs
-- 🌌 Improve deep learning models for higher accuracy
-- 🪐 Add 3D visualization of exoplanets
+## 📡 Future Roadmap
+- Integration with live JWST data APIs
+- Advanced neural architectures
+- 3D exoplanetary visualizations
 
 ---
 
-⭐ **If you love space and AI, give this repo a star!** 🌟
+<p align="center">
+  <img src="https://raw.githubusercontent.com/username/repo/main/assets/space-footer.svg" width="80%">
+</p>
+
+<p align="center">
+  <b>⭐ Star this repository to support the mission! ⭐</b>
+</p>
