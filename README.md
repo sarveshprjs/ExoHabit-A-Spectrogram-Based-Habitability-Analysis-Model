@@ -1,102 +1,42 @@
-# 🌍🚀 ExoHabit: Discover Earth 2.0 with AI 🪐
+# 🌌 ExoHabit 🚀  
+**A Spectrogram-Based Habitability Analysis Model**
 
-![space telescope](https://media.tenor.com/0pEZ6_oKBIEAAAAC/nasa-james-webb.gif)
+![Space Animation](https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif)
 
-> **"Somewhere, something incredible is waiting to be known." – Carl Sagan**
-
-**ExoHabit** is an AI-powered space research project using real and simulated spectrogram data from exoplanets to detect habitability. It compares light signatures from distant worlds with Earth’s biosignature to find our next potential home in the stars.
-
----
-
-## 🌠 What Is ExoHabit?
-
-ExoHabit uses the **James Webb Space Telescope (JWST)**'s spectrograms to:
-
-- 🔬 Detect key molecules like O₂, CH₄, CO₂ in planetary atmospheres
-- 🧠 Compare with Earth’s light signature
-- 🧪 Calculate a **habitability compatibility score**
-- 📈 Visualize side-by-side spectrograms
-
-> ✨ This is your AI companion for exploring habitable worlds across galaxies.
+> 🪐 *Exploring exoplanets and comparing their atmospheric properties with Earth using spectrogram data.*
 
 ---
 
-## 🚀 Live from the Universe
-
-![planet scan](https://media.giphy.com/media/WFZvB7VIXBgiz3oDXE/giphy.gif)
-
-JWST beams data from far-off exoplanets.  
-ExoHabit reads the **infrared spectrum**, identifies chemical markers, and evaluates if the planet could host Earth-like life.
-
----
-
-## 🛠️ Tech Stack
-
-- Python 3.11+
-- `numpy`, `scipy`, `pandas`
-- `scikit-learn`, `matplotlib`, `seaborn`
-- `astropy`, `specutils`
+## ✨ Features
+- 🔭 Analyze spectrograms of exoplanets
+- 🌍 Compare planetary environments with Earth
+- 🧪 Estimate percentage of habitability
+- 🚀 Supports James Webb Space Telescope (JWST) data
 
 ---
 
-## 🧪 Sample Output
+## 🛰️ Project Overview
+ExoHabit is designed to process spectrogram datasets from JWST to analyze atmospheric composition and predict habitability.  
+Our model leverages deep learning to map exoplanet spectrogram signatures to Earth’s known data and generate a habitability index.
 
-![spectral analysis](https://upload.wikimedia.org/wikipedia/commons/c/cb/Exoplanet_Spectra_-_NASA.gif)
+---
 
-```text
-🪐 Planet: Kepler-1649c
-✔️ O₂ Detected
-✔️ CH₄ Detected
-❌ H₂O Missing
+## 📸 Example Output
+![Planet Animation](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
 
-✅ Habitability Score: 86.7%
+---
 
+## 🧑‍🚀 Team
+- 👩‍💻 Diksha Wagh
+- 👨‍💻 Sarvesh Prjs
 
+---
 
-## 📁 Project Structure
+## 🌠 Future Scope
+- 📡 Integrate real-time JWST data APIs
+- 🌌 Improve deep learning models for higher accuracy
+- 🪐 Add 3D visualization of exoplanets
 
-```bash
-ExoHabit/
-├── data/                     # Sample spectra (Earth, exoplanets)
-├── notebooks/                # Jupyter exploration and EDA
-├── src/
-│   ├── preprocessing.py      # Clean and normalize spectral data
-│   ├── feature_extraction.py # Detect molecules & features
-│   ├── model.py              # ML model for scoring
-│   └── evaluate.py           # Compatibility score logic
-├── main.py                   # Run everything in one go!
-├── requirements.txt
-└── README.md
-# ExoHabit-A-Spectrogram-Based-Habitability-Analysis-Model
+---
 
-Sample Output
-
-🧪 Habitability Score: 88.3%
-✅ "This planet contains strong O₂ and CH₄ signatures, within the habitable zone. Compatible with Earth-like life."
-
- Future Possibilities
-🌐 Use real JWST data from MAST
-
-🧬 Deep learning on high-res spectra
-
-🛰️ Dashboard to explore planets interactively (Streamlit/Gradio)
-
-🌎 Terraforming suggestions for low-score planets
-
- Contributing
-Pull requests are welcome! Found a better way to model alien life? Let’s explore together!
-
-git clone https://github.com/yourusername/ExoHabit.git
-cd ExoHabit
-pip install -r requirements.txt
-python main.py
-
-📖 License
-This project is licensed under the MIT License — free to use, explore, and extend.
-
-✨ Final Thought
-
-🌌 “ExoHabit is not just about planets — it's about possibilities.”
-
-💫 Made with love, science, and stars.
-
+⭐ **If you love space and AI, give this repo a star!** 🌟
