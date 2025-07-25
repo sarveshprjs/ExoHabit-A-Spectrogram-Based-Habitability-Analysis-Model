@@ -1,8 +1,7 @@
 <!-- 🌌 HEADER BANNER -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/username/repo/main/assets/solar-system.gif" width="80%">
+  <img src="assets/solar-system.svg" width="400">
 </p>
-
 <h1 align="center">🌌 ExoHabit: A Spectrogram-Based Habitability Analysis Model 🚀</h1>
 <p align="center">
   <b>Exploring exoplanets using James Webb Space Telescope (JWST) spectrogram data to assess planetary habitability.</b>
