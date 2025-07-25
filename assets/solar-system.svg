@@ -1,0 +1,25 @@
+
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="black"/>
+  <!-- Sun -->
+  <circle cx="250" cy="250" r="20" fill="orange"/>
+  
+  <!-- Orbits -->
+  <circle cx="250" cy="250" r="50" fill="none" stroke="white" stroke-opacity="0.2"/>
+  <circle cx="250" cy="250" r="100" fill="none" stroke="white" stroke-opacity="0.2"/>
+  <circle cx="250" cy="250" r="150" fill="none" stroke="white" stroke-opacity="0.2"/>
+  <circle cx="250" cy="250" r="200" fill="none" stroke="white" stroke-opacity="0.2"/>
+
+  <!-- Planets -->
+  <circle id="p1" cx="300" cy="250" r="6" fill="#4fa3f7"/>
+  <circle id="p2" cx="350" cy="250" r="8" fill="#3ddc84"/>
+  <circle id="p3" cx="400" cy="250" r="10" fill="#f2b134"/>
+
+  <!-- Animations -->
+  <animateTransform xlink:href="#p1" attributeName="transform" type="rotate"
+    from="0 250 250" to="360 250 250" dur="6s" repeatCount="indefinite"/>
+  <animateTransform xlink:href="#p2" attributeName="transform" type="rotate"
+    from="0 250 250" to="360 250 250" dur="12s" repeatCount="indefinite"/>
+  <animateTransform xlink:href="#p3" attributeName="transform" type="rotate"
+    from="0 250 250" to="360 250 250" dur="18s" repeatCount="indefinite"/>
+</svg>
